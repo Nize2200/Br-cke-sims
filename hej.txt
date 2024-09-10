@@ -1,2 +1,6 @@
 Test o kollar
-test2
+
+Function 2 {
+
+return 0;
+]
