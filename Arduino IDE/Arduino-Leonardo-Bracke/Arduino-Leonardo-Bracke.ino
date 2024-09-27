@@ -75,7 +75,7 @@ void setup() {
     pinMode(Pin_LED_1,OUTPUT);
 
     XInput.setRange(JOY_LEFT, 0, 1023);
-    XInput.setRange(JOY_RIGHT, -100 ,1123);
+    XInput.setRange(JOY_RIGHT, 0 ,1023);
     XInput.begin();
 }
 
