@@ -74,7 +74,9 @@ void setup() {
     pinMode(Pin_LED_1,OUTPUT);  
     pinMode(Pin_LED_1,OUTPUT);
 
+   
     XInput.setRange(JOY_LEFT, 0, 1023);
+   
     XInput.setRange(JOY_RIGHT, 0 ,1023);
     XInput.begin();
 }
@@ -160,6 +162,7 @@ void loop() {
     }
   XInput.setJoystickX(JOY_LEFT, leftXAxis, false);
   XInput.setJoystickY(JOY_LEFT, leftYAxis, true); 
+
   XInput.setJoystickX(JOY_RIGHT, rightYAxis, true); // Joystik is mounted wrong way on joystick , makesure we check x and y
   XInput.setJoystickY(JOY_RIGHT, rightXAxis, true);
     uint16_t rumble = XInput.getRumble();
