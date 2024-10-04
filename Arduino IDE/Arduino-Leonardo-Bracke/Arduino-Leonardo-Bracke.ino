@@ -29,36 +29,10 @@ const int DEADZONE = 1;
 #define BUZZER_PIN 1
 
 
-// DOOM intro
-int melody[] = {
-  NOTE_E2, NOTE_E2, NOTE_E3, NOTE_E2, NOTE_E2, NOTE_D3, NOTE_E2, NOTE_E2, 
-  NOTE_C3, NOTE_E2, NOTE_E2, NOTE_AS2, NOTE_E2, NOTE_E2, NOTE_B2, NOTE_C3,
-  NOTE_E2, NOTE_E2, NOTE_E3, NOTE_E2, NOTE_E2, NOTE_D3, NOTE_E2, NOTE_E2,
-  NOTE_C3, NOTE_E2, NOTE_E2, NOTE_AS2,
-  
-  NOTE_E2, NOTE_E2, NOTE_E3, NOTE_E2, NOTE_E2, NOTE_D3, NOTE_E2, NOTE_E2, 
-  NOTE_C3, NOTE_E2, NOTE_E2, NOTE_AS2, NOTE_E2, NOTE_E2, NOTE_B2, NOTE_C3,
-  NOTE_E2, NOTE_E2, NOTE_E3, NOTE_E2, NOTE_E2, NOTE_D3, NOTE_E2, NOTE_E2,
-  NOTE_C3, NOTE_E2, NOTE_E2, NOTE_AS2,
-  
-};
-
-int durations[] = {
-  8, 8, 8, 8, 8, 8, 8, 8, 
-  8, 8, 8, 8, 8, 8, 8, 8,
-  8, 8, 8, 8, 8, 8, 8, 8,
-  8, 8, 8, 2,
-  
-  8, 8, 8, 8, 8, 8, 8, 8, 
-  8, 8, 8, 8, 8, 8, 8, 8,
-  8, 8, 8, 8, 8, 8, 8, 8,
-  8, 8, 8, 2,
-  
-};
 
 
 void setup() {
-  
+  Serial.begin(9600);
     pinMode(Pin_buttonRB, INPUT_PULLUP);
     pinMode(Pin_buttonLB, INPUT_PULLUP);
     pinMode(Pin_buttonA, INPUT_PULLUP);
@@ -83,15 +57,12 @@ void setup() {
 
 void loop() {
 
-  int size = sizeof(durations) / sizeof(int);
-
   int playerIndex = XInput.getPlayer();
 
   digitalWrite(Pin_LED_1, LOW);
   digitalWrite(Pin_LED_2, LOW);
   digitalWrite(Pin_LED_3, LOW);
   digitalWrite(Pin_LED_4, LOW);
-
 
  
   // Turn on the LED corresponding to the player index
@@ -183,5 +154,17 @@ void loop() {
     }
     
 
+  
+  if(Serial.available() > 0 ){
+    char command = Serial.read();
+    if(command == 'A')
+    {
+      digitalWrite(Pin_LED_3, HIGH);
+
+
+    }
+    
+
+  }
 }
 
