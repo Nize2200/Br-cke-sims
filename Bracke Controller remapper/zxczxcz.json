@@ -1,1 +1,0 @@
-{"buttons": {"BTN_SOUTH": "right_trigger", "BTN_EAST": 8192, "BTN_NORTH": 16384, "BTN_WEST": 32768, "BTN_TL": 256, "BTN_TR": 512, "BTN_SELECT": 32, "BTN_START": 16, "BTN_THUMBL": 64, "BTN_THUMBR": 128}, "triggers": {"ABS_Z": "left_trigger", "ABS_RZ": "right_trigger"}}
