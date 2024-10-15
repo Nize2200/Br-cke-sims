@@ -1,27 +1,37 @@
 ﻿using SharpDX.XInput;
+using System.Collections.Generic;
 
 namespace XInputRemapper
 {
     public class ButtonMapper
     {
         private Gamepad changedController;
+        private List<(GamepadButtonFlags from, GamepadButtonFlags to)> remaps;
 
         public ButtonMapper()
         {
             changedController = new Gamepad();
+            remaps = new List<(GamepadButtonFlags from, GamepadButtonFlags to)>();
         }
 
-        public Gamepad MapButtons(Gamepad originalController, GamepadButtonFlags fromButton, GamepadButtonFlags toButton)
+        public void AddRemap(GamepadButtonFlags fromButton, GamepadButtonFlags toButton)
         {
-            
+            remaps.Add((fromButton, toButton));
+        }
+
+        public Gamepad MapButtons(Gamepad originalController)
+        {
             changedController = originalController;
 
-            if ((originalController.Buttons & fromButton) != 0)
+            foreach (var remap in remaps)
             {
-                changedController.Buttons |= toButton;
-                if (fromButton != toButton)
+                if ((originalController.Buttons & remap.from) != 0)
                 {
-                    changedController.Buttons &= ~fromButton;
+                    changedController.Buttons |= remap.to;
+                    if (remap.from != remap.to)
+                    {
+                        changedController.Buttons &= ~remap.from;
+                    }
                 }
             }
 

@@ -52,10 +52,12 @@ namespace XInputRemapper
 
             try
             {
-                string stateJson = Newtonsoft.Json.JsonConvert.SerializeObject(state);
+                var remappedState = buttonMapper.MapButtons(state);
+                string stateJson = Newtonsoft.Json.JsonConvert.SerializeObject(remappedState);
                 string commandJson = "{\"command\": \"test\"}";
 
                 databaseHandler.AddToDatabase(1, stateJson, commandJson);
+                UpdateUI(remappedState);
             }
             catch (Exception ex)
             {
@@ -87,7 +89,7 @@ namespace XInputRemapper
                     buttonToRemapFrom = state.Buttons;
                     isRemapFromButtonPressed = false;
                     RemapFromButton.Content = "Button to remap from";
-                    MessageBox.Show($"Button to remap from: {buttonToRemapFrom}");
+                    RemapFromTextBlock.Text = buttonToRemapFrom.ToString();
                     break;
                 }
                 await Task.Delay(100);
@@ -104,7 +106,7 @@ namespace XInputRemapper
                     buttonToRemapTo = state.Buttons;
                     isRemapToButtonPressed = false;
                     RemapToButton.Content = "Button to remap to";
-                    MessageBox.Show($"Button to remap to: {buttonToRemapTo}");
+                    RemapToTextBlock.Text = buttonToRemapTo.ToString();
                     break;
                 }
                 await Task.Delay(100);
@@ -113,32 +115,8 @@ namespace XInputRemapper
 
         private void ApplyRemapButton_Click(object sender, RoutedEventArgs e)
         {
-            ApplyButtonRemap(buttonToRemapFrom, buttonToRemapTo);
+            buttonMapper.AddRemap(buttonToRemapFrom, buttonToRemapTo);
             MessageBox.Show($"Remapped {buttonToRemapFrom} to {buttonToRemapTo}");
-        }
-
-        private void ApplyButtonRemap(GamepadButtonFlags from, GamepadButtonFlags to)
-        {
-            controllerHandler.PauseUpdates();
-            controllerHandler.StateChanged -= OnControllerStateChanged;
-            controllerHandler.StateChanged += (state) =>
-            {
-                var remappedState = buttonMapper.MapButtons(state, from, to);
-                UpdateUI(remappedState);
-
-                try
-                {
-                    string stateJson = Newtonsoft.Json.JsonConvert.SerializeObject(remappedState);
-                    string commandJson = "{\"command\": \"remap\"}";
-
-                    databaseHandler.AddToDatabase(1, stateJson, commandJson);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error updating database: {ex.Message}");
-                }
-            };
-            controllerHandler.ResumeUpdates();
         }
     }
 }

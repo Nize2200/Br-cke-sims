@@ -27,7 +27,13 @@
            VerticalAlignment="Top" 
            FontSize="24" Width="200" Margin="0,185,70,0" Grid.Column="1"/>
         <Button x:Name="RemapFromButton" Content="Button to remap from" HorizontalAlignment="Left" Margin="149,31,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Click="RemapFromButton_Click"/>
+        <TextBlock x:Name="RemapFromTextBlock" 
+                   VerticalAlignment="Top" 
+                   FontSize="16" Margin="310,31,0,0" HorizontalAlignment="Left" Width="200" Height="30" Grid.ColumnSpan="2"/>
         <Button x:Name="RemapToButton" Content="Button to remap to" HorizontalAlignment="Left" Margin="149,75,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Click="RemapToButton_Click"/>
+        <TextBlock x:Name="RemapToTextBlock" 
+                   VerticalAlignment="Top" 
+                   FontSize="16" Margin="310,75,0,0" HorizontalAlignment="Left" Width="200" Height="30" Grid.ColumnSpan="2"/>
         <Button x:Name="ApplyRemapButton" Content="Apply Remap" HorizontalAlignment="Left" Margin="149,120,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Click="ApplyRemapButton_Click"/>
     </Grid>
 </Window>

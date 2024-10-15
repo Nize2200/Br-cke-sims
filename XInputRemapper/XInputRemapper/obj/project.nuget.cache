@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TcCYmLZ3mL0=",
+  "dgSpecHash": "zwmsxS7Xu4w=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
+  "projectFilePath": "C:\\Users\\Nikla\\VisualStudio\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nikla\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Nikla\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
