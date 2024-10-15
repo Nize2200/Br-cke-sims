@@ -8,9 +8,8 @@
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="ButtonPressTextBlock" 
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Center" 
-                   FontSize="24" Grid.Column="1" Margin="122,0,0,0" Width="145"/>
+                   VerticalAlignment="Top" 
+                   FontSize="24" Margin="165,250,0,0" HorizontalAlignment="Left" Width="194" Height="30" Grid.Column="1"/>
         <TextBlock x:Name="JoystickLeft"
                    HorizontalAlignment="Right" 
                    VerticalAlignment="Top" 
@@ -19,10 +18,16 @@
            HorizontalAlignment="Right" 
            VerticalAlignment="Top" 
            FontSize="24" Width="164" Margin="0,185,30,0"/>
-        <Button Content="Add to Database" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Bottom" 
-                Margin="0,5,3,10"
-                Click="AddToDatabaseButton_Click" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="TriggerRight"
+           HorizontalAlignment="Right" 
+           VerticalAlignment="Top" 
+           FontSize="24" Width="200" Margin="0,130,70,0" Grid.Column="1"/>
+        <TextBlock x:Name="TriggerLeft"
+           HorizontalAlignment="Right" 
+           VerticalAlignment="Top" 
+           FontSize="24" Width="200" Margin="0,185,70,0" Grid.Column="1"/>
+        <Button x:Name="RemapFromButton" Content="Button to remap from" HorizontalAlignment="Left" Margin="149,31,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Click="RemapFromButton_Click"/>
+        <Button x:Name="RemapToButton" Content="Button to remap to" HorizontalAlignment="Left" Margin="149,75,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Click="RemapToButton_Click"/>
+        <Button x:Name="ApplyRemapButton" Content="Apply Remap" HorizontalAlignment="Left" Margin="149,120,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Click="ApplyRemapButton_Click"/>
     </Grid>
 </Window>
