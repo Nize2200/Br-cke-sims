@@ -3,7 +3,7 @@
 ## Installation
 Installera genom cmd (administator) exe filen som ligger i "bin" katalog.
 ```bash
-sc create service_test1 binPath="C:\...\bin\Release\sims_ws_test2.exe"
+sc create sims_ws_test2 binPath="C:\...\bin\Release\sims_ws_test2.exe"
 ```
 
 ## Start och stopp
