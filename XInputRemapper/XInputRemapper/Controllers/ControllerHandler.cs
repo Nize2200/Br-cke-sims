@@ -40,7 +40,7 @@ namespace XInputRemapper
                             previousState = state;
                         }
                     }
-                    await Task.Delay(100);
+                    //await Task.Delay(100); // Delay or we write alot of inputs to database, might need to consider doing a deadzone or something where we dont get so many joystick inputs
                 }
             });
         }

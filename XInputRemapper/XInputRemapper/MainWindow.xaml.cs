@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
+using System.Windows.Input;
 using SharpDX.XInput;
+using Hardcodet.Wpf.TaskbarNotification;
 
 namespace XInputRemapper
 {
@@ -15,6 +15,8 @@ namespace XInputRemapper
         private GamepadButtonFlags buttonToRemapTo;
         private bool isRemapFromButtonPressed = false;
         private bool isRemapToButtonPressed = false;
+        public ICommand ShowWindowCommand { get; }
+        public ICommand ExitApplicationCommand { get; }
 
         public MainWindow()
         {
@@ -23,7 +25,40 @@ namespace XInputRemapper
             databaseHandler = new DatabaseHandler();
             buttonMapper = new ButtonMapper();
             controllerHandler.StateChanged += OnControllerStateChanged;
+
+            ShowWindowCommand = new RelayCommand(ShowWindow);
+            ExitApplicationCommand = new RelayCommand(ExitApplication);
+            DataContext = this;
+
             StartReadingInput();
+        }
+
+        private void ShowWindow()
+        {
+            this.Show();
+            this.WindowState = WindowState.Normal;
+            this.Activate(); // Brings the window to the foreground
+        }
+
+        private void ExitApplication()
+        {
+            MyNotifyIcon.Dispose();
+            Application.Current.Shutdown();
+        }
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            base.OnStateChanged(e);
+            if (WindowState == WindowState.Minimized)
+            {
+                this.Hide();
+            }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            MyNotifyIcon.Dispose();
+            base.OnClosed(e);
         }
 
         private async void StartReadingInput()
