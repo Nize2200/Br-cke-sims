@@ -20,4 +20,4 @@ Du kan stoppa programmet genom cmd.
 st stop sims_ws_test2
 ```
 
-#### För test, genererar programmet en textfil i "C:\\temp\\scan"\\service_check.txt;" så att man kan kolla resultaten i text.
+#### För test, genererar programmet en textfil i "C:\\temp\\scan\\service_check.txt;" så att man kan kolla resultaten i text.
