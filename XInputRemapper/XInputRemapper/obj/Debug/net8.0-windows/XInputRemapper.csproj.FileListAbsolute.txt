@@ -81,3 +81,4 @@ C:\Users\Nikla\VisualStudio\XInputRemapper\XInputRemapper\obj\Debug\net8.0-windo
 C:\Users\Nikla\VisualStudio\XInputRemapper\XInputRemapper\obj\Debug\net8.0-windows\XInputRemapper.genruntimeconfig.cache
 C:\Users\Nikla\VisualStudio\XInputRemapper\XInputRemapper\obj\Debug\net8.0-windows\ref\XInputRemapper.dll
 C:\Users\Nikla\VisualStudio\XInputRemapper\XInputRemapper\bin\Debug\net8.0-windows\Hardcodet.Wpf.TaskbarNotification.dll
+C:\Users\Nikla\OneDrive\Documents\GitHub\Br-cke-sims\XInputRemapper\XInputRemapper\bin\Debug\net8.0-windows\Hardcodet.Wpf.TaskbarNotification.dll

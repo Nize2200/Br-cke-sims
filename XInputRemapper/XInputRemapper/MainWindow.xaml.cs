@@ -89,9 +89,8 @@ namespace XInputRemapper
             {
                 var remappedState = buttonMapper.MapButtons(state);
                 string stateJson = Newtonsoft.Json.JsonConvert.SerializeObject(remappedState);
-                string commandJson = "{\"command\": \"test\"}";
 
-                databaseHandler.AddToDatabase(1, stateJson, commandJson);
+                databaseHandler.AddToDatabase(1, stateJson);
                 UpdateUI(remappedState);
             }
             catch (Exception ex)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7p3PnOoM6fE=",
+  "dgSpecHash": "GE1zAwJynY8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nikla\\VisualStudio\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
+  "projectFilePath": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nikla\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.0.5\\hardcodet.notifyicon.wpf.1.0.5.nupkg.sha512",
     "C:\\Users\\Nikla\\.nuget\\packages\\hardcodet.wpf.taskbarnotification\\1.0.5\\hardcodet.wpf.taskbarnotification.1.0.5.nupkg.sha512",
