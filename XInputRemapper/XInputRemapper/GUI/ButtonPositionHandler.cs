@@ -30,10 +30,10 @@ namespace XInputRemapper
                 {
                     "Handgrepp med finger tryckplatta", new Dictionary<string, Point>
                     {
-                        { "A", new Point(160, 210) },
-                        { "B", new Point(210, 210) },
-                        { "X", new Point(160, 160) },
-                        { "Y", new Point(210, 160) }
+                        { "A", new Point(745, 145) },
+                        { "B", new Point(780, 130) },
+                        { "X", new Point(745, 110) },
+                        { "Y", new Point(780, 100) }
                     }
                 },
                 {

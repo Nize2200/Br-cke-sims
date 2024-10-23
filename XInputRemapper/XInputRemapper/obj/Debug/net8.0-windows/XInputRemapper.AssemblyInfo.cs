@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XInputRemapper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba05e233a6e2066ab6b30a3eb1eb2344ebfd60f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5c1fb77590d822c7f060dd76dba5519909734a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("XInputRemapper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XInputRemapper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

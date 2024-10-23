@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -15,36 +11,32 @@
       "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\gui\\buttonpositionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\xinputremapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\xinputremapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\controllers\\controllerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\controllers\\controllerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\simpleton.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\simpleton.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\test.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\test.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\blade.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\blade.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\controllers\\buttonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\controllers\\buttonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\controllers\\controllerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\controllers\\controllerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\xinputremapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\xinputremapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\nikla\\onedrive\\documents\\github\\br-cke-sims\\xinputremapper\\xinputremapper\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -69,61 +61,124 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "XInputRemapper\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml.cs",
+              "RelativeToolTip": "XInputRemapper\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAwwIoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T10:37:49.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ButtonPositionHandler.cs",
               "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\GUI\\ButtonPositionHandler.cs",
               "RelativeDocumentMoniker": "XInputRemapper\\GUI\\ButtonPositionHandler.cs",
               "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\GUI\\ButtonPositionHandler.cs",
               "RelativeToolTip": "XInputRemapper\\GUI\\ButtonPositionHandler.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAIwA4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T09:41:47.241Z",
+              "WhenOpened": "2024-10-23T12:29:15.685Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "blade.jpg",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\blade.jpg",
-              "RelativeDocumentMoniker": "XInputRemapper\\blade.jpg",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\blade.jpg",
-              "RelativeToolTip": "XInputRemapper\\blade.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-10-23T08:11:04.662Z",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "XInputRemapper\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml",
+              "RelativeToolTip": "XInputRemapper\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-18T08:06:31.538Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "test.jpg",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\test.jpg",
-              "RelativeDocumentMoniker": "XInputRemapper\\test.jpg",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\test.jpg",
-              "RelativeToolTip": "XInputRemapper\\test.jpg",
+              "DocumentIndex": 2,
+              "Title": "simpleton.jpg",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\simpleton.jpg",
+              "RelativeDocumentMoniker": "XInputRemapper\\simpleton.jpg",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\simpleton.jpg",
+              "RelativeToolTip": "XInputRemapper\\simpleton.jpg",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-10-23T08:10:53.353Z",
+              "WhenOpened": "2024-10-23T08:39:54.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DatabaseHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Data\\DatabaseHandler.cs",
+              "RelativeDocumentMoniker": "XInputRemapper\\Data\\DatabaseHandler.cs",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Data\\DatabaseHandler.cs",
+              "RelativeToolTip": "XInputRemapper\\Data\\DatabaseHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T09:03:00.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml.cs",
+              "RelativeDocumentMoniker": "XInputRemapper\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml.cs",
+              "RelativeToolTip": "XInputRemapper\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T13:19:26.494Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "XInputRemapper.csproj",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
-              "RelativeDocumentMoniker": "XInputRemapper\\XInputRemapper.csproj",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
-              "RelativeToolTip": "XInputRemapper\\XInputRemapper.csproj",
-              "ViewState": "AgIAACsAAAAAAAAAAAAgPQAAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-23T07:38:40.944Z",
+              "Title": "ButtonMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ButtonMapper.cs",
+              "RelativeDocumentMoniker": "XInputRemapper\\Controllers\\ButtonMapper.cs",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ButtonMapper.cs",
+              "RelativeToolTip": "XInputRemapper\\Controllers\\ButtonMapper.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAADwv2gAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T07:51:39.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
+              "Title": "ControllerHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ControllerHandler.cs",
+              "RelativeDocumentMoniker": "XInputRemapper\\Controllers\\ControllerHandler.cs",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ControllerHandler.cs",
+              "RelativeToolTip": "XInputRemapper\\Controllers\\ControllerHandler.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswCIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T07:52:15.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml",
+              "RelativeDocumentMoniker": "XInputRemapper\\App.xaml",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml",
+              "RelativeToolTip": "XInputRemapper\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-22T13:19:27.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "XInputRemapper\\AssemblyInfo.cs",
@@ -136,105 +191,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "XInputRemapper\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml*",
-              "RelativeToolTip": "XInputRemapper\\MainWindow.xaml*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-18T08:06:31.538Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "XInputRemapper\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml.cs*",
-              "RelativeToolTip": "XInputRemapper\\MainWindow.xaml.cs*",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAcwLUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T10:37:49.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml",
-              "RelativeDocumentMoniker": "XInputRemapper\\App.xaml",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml",
-              "RelativeToolTip": "XInputRemapper\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-22T13:19:27.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ControllerHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ControllerHandler.cs",
-              "RelativeDocumentMoniker": "XInputRemapper\\Controllers\\ControllerHandler.cs",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ControllerHandler.cs",
-              "RelativeToolTip": "XInputRemapper\\Controllers\\ControllerHandler.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwCIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T07:52:15.036Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "simpleton.jpg",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\simpleton.jpg",
-              "RelativeDocumentMoniker": "XInputRemapper\\simpleton.jpg",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\simpleton.jpg",
-              "RelativeToolTip": "XInputRemapper\\simpleton.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-10-23T08:39:54.431Z",
+              "DocumentIndex": 7,
+              "Title": "XInputRemapper.csproj",
+              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
+              "RelativeDocumentMoniker": "XInputRemapper\\XInputRemapper.csproj",
+              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\XInputRemapper.csproj",
+              "RelativeToolTip": "XInputRemapper\\XInputRemapper.csproj",
+              "ViewState": "AgIAACsAAAAAAAAAAAAgPQAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-23T07:38:40.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "DatabaseHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Data\\DatabaseHandler.cs",
-              "RelativeDocumentMoniker": "XInputRemapper\\Data\\DatabaseHandler.cs",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Data\\DatabaseHandler.cs",
-              "RelativeToolTip": "XInputRemapper\\Data\\DatabaseHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T09:03:00.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml.cs",
-              "RelativeDocumentMoniker": "XInputRemapper\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\App.xaml.cs",
-              "RelativeToolTip": "XInputRemapper\\App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T13:19:26.494Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ButtonMapper.cs",
-              "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ButtonMapper.cs",
-              "RelativeDocumentMoniker": "XInputRemapper\\Controllers\\ButtonMapper.cs",
-              "ToolTip": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ButtonMapper.cs",
-              "RelativeToolTip": "XInputRemapper\\Controllers\\ButtonMapper.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T07:51:39.135Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "C:\\Users\\Nikla\\OneDrive\\Documents\\GitHub\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Data\\RelayCommand.cs",
               "RelativeDocumentMoniker": "XInputRemapper\\Data\\RelayCommand.cs",
@@ -246,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "XamlReader.cs",
               "DocumentMoniker": "C:\\Users\\Nikla\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs",

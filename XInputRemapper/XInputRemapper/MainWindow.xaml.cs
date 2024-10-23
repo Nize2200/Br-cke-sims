@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using SharpDX.XInput;
 using Hardcodet.Wpf.TaskbarNotification;
+using System.Windows.Input;
 
 namespace XInputRemapper
 {
@@ -13,6 +13,7 @@ namespace XInputRemapper
         private ControllerHandler controllerHandler;
         private DatabaseHandler databaseHandler;
         private ButtonMapper buttonMapper;
+        private ButtonPositionHandler buttonPositionHandler;
         private GamepadButtonFlags buttonToRemapFrom;
         private GamepadButtonFlags buttonToRemapTo;
         private bool isRemapFromButtonPressed = false;
@@ -26,11 +27,13 @@ namespace XInputRemapper
             controllerHandler = new ControllerHandler(UpdateUI);
             databaseHandler = new DatabaseHandler();
             buttonMapper = new ButtonMapper();
+            buttonPositionHandler = new ButtonPositionHandler();
             controllerHandler.StateChanged += OnControllerStateChanged;
 
             ShowWindowCommand = new RelayCommand(ShowWindow);
             ExitApplicationCommand = new RelayCommand(ExitApplication);
             DataContext = this;
+            DisplayBindingsTable();
 
             StartReadingInput();
         }
@@ -46,6 +49,11 @@ namespace XInputRemapper
         {
             MyNotifyIcon.Dispose();
             Application.Current.Shutdown();
+        }
+
+        private void DisplayBindingsTable()
+        {
+            BindingsTextBox.Text = buttonMapper.GenerateBindingsTable();
         }
 
         protected override void OnStateChanged(EventArgs e)
@@ -70,14 +78,7 @@ namespace XInputRemapper
 
         private void UpdateUI(Gamepad gamepad)
         {
-            Dispatcher.Invoke(() =>
-            {
-                ButtonPressTextBlock.Text = gamepad.Buttons.ToString();
-                JoystickLeft.Text = $"leftJoy:\nX{gamepad.LeftThumbX}\nY{gamepad.LeftThumbY}";
-                JoystickRight.Text = $"RightJoy:\nX{gamepad.RightThumbX}\nY{gamepad.RightThumbY}";
-                TriggerLeft.Text = "Left Trigger: " + gamepad.LeftTrigger.ToString();
-                TriggerRight.Text = "Right Trigger: " + gamepad.RightTrigger.ToString();
-            });
+            
         }
 
         private void OnControllerStateChanged(Gamepad state)
@@ -103,49 +104,29 @@ namespace XInputRemapper
 
         private void RemapFromButton_Click(object sender, RoutedEventArgs e)
         {
-            isRemapFromButtonPressed = true;
-            RemapFromButton.Content = "Waiting for button press...";
-            CaptureButtonPressFrom();
+            if (RemapFromComboBox.SelectedItem != null)
+            {
+                var buttonName = (RemapFromComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+                buttonToRemapFrom = ButtonMapper.GetButtonFlag(buttonName);
+                RemapFromTextBlock.Text = buttonToRemapFrom.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Please select a button to remap from.");
+            }
         }
 
         private void RemapToButton_Click(object sender, RoutedEventArgs e)
         {
-            isRemapToButtonPressed = true;
-            RemapToButton.Content = "Waiting for button press...";
-            CaptureButtonPressTo();
-        }
-
-        private async void CaptureButtonPressFrom()
-        {
-            while (isRemapFromButtonPressed)
+            if (RemapToComboBox.SelectedItem != null)
             {
-                var state = controllerHandler.GetCurrentState();
-                if (state.Buttons != GamepadButtonFlags.None)
-                {
-                    buttonToRemapFrom = state.Buttons;
-                    isRemapFromButtonPressed = false;
-                    RemapFromButton.Content = "Button to remap from";
-                    RemapFromTextBlock.Text = buttonToRemapFrom.ToString();
-                    break;
-                }
-                await Task.Delay(100);
+                var buttonName = (RemapToComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+                buttonToRemapTo = ButtonMapper.GetButtonFlag(buttonName);
+                RemapToTextBlock.Text = buttonToRemapTo.ToString();
             }
-        }
-
-        private async void CaptureButtonPressTo()
-        {
-            while (isRemapToButtonPressed)
+            else
             {
-                var state = controllerHandler.GetCurrentState();
-                if (state.Buttons != GamepadButtonFlags.None)
-                {
-                    buttonToRemapTo = state.Buttons;
-                    isRemapToButtonPressed = false;
-                    RemapToButton.Content = "Button to remap to";
-                    RemapToTextBlock.Text = buttonToRemapTo.ToString();
-                    break;
-                }
-                await Task.Delay(100);
+                MessageBox.Show("Please select a button to remap to.");
             }
         }
 
@@ -153,30 +134,55 @@ namespace XInputRemapper
         {
             buttonMapper.AddRemap(buttonToRemapFrom, buttonToRemapTo);
             MessageBox.Show($"Remapped {buttonToRemapFrom} to {buttonToRemapTo}");
+
+            // Update the remapping information display
+            DisplayBindingsTable();
+            var remaps = buttonMapper.GetRemaps();
+            RemapInfoTextBlock.Text = string.Join("\n", remaps.Select(remap => $"{ButtonMapper.GetButtonName(remap.from)} -> {ButtonMapper.GetButtonName(remap.to)}"));
         }
 
-        // New logic for handling controller selection and image update
-        private void ControllerComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ControllerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Get the selected controller from the ComboBox
-            var selectedController = (ControllerComboBox.SelectedItem as System.Windows.Controls.ComboBoxItem)?.Content.ToString();
+            var selectedController = (ControllerComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
 
-            // Update the image source based on the selected controller
+            // Hide all button labels initially
+            ButtonA.Visibility = Visibility.Collapsed;
+            ButtonB.Visibility = Visibility.Collapsed;
+            ButtonX.Visibility = Visibility.Collapsed;
+            ButtonY.Visibility = Visibility.Collapsed;
+            // Hide other button labels as needed
+
             switch (selectedController)
             {
                 case "Xbox Controller":
                     ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/chat_bubble_message_contact_icon_264232.ico"));
+                    buttonPositionHandler.UpdateButtonPositions("Xbox Controller", ButtonA, ButtonB, ButtonX, ButtonY);
+                    ButtonA.Visibility = Visibility.Visible;
+                    ButtonB.Visibility = Visibility.Visible;
+                    ButtonX.Visibility = Visibility.Visible;
+                    ButtonY.Visibility = Visibility.Visible;
                     break;
                 case "Handgrepp med finger tryckplatta":
                     ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/XInputRemapper;component/blade.jpg"));
+                    buttonPositionHandler.UpdateButtonPositions("Handgrepp med finger tryckplatta", ButtonA, ButtonB, ButtonX, ButtonY);
+                    ButtonA.Visibility = Visibility.Visible;
+                    ButtonB.Visibility = Visibility.Visible;
+                    ButtonX.Visibility = Visibility.Visible;
+                    ButtonY.Visibility = Visibility.Visible;
                     break;
                 case "Simpleton":
                     ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/simpleton.jpg"));
+                    buttonPositionHandler.UpdateButtonPositions("Simpleton", ButtonA, ButtonB, ButtonX, ButtonY);
+                    ButtonA.Visibility = Visibility.Visible;
+                    ButtonB.Visibility = Visibility.Visible;
+                    ButtonX.Visibility = Visibility.Visible;
+                    ButtonY.Visibility = Visibility.Visible;
                     break;
                 default:
                     ControllerImage.Source = null; // Clear the image if no controller is selected
                     break;
             }
         }
+
     }
 }
