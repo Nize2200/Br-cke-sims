@@ -12,6 +12,9 @@
     <None Remove="chat_bubble_message_contact_icon_264232.ico" />
     <None Remove="Icon\chat_bubble_message_contact_icon_264232.ico" />
     <None Remove="Icon\check_small_icon_155663.png" />
+    <None Remove="images\blade.jpg" />
+    <None Remove="simpleton.jpg" />
+    <None Remove="test.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,9 +26,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="simpleton.jpg" />
+    <Resource Include="test.jpg" />
     <Resource Include="chat_bubble_message_contact_icon_264232.ico" />
     <Resource Include="Icon\chat_bubble_message_contact_icon_264232.ico" />
     <Resource Include="Icon\check_small_icon_155663.png" />
+    <Resource Include="blade.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
 
 </Project>

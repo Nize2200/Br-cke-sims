@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:tb="http://www.hardcodet.net/taskbar"
-        Title="XInput Remapper" Height="400" Width="700">
+        Title="XInput Remapper" Height="746" Width="926">
 
     <Window.Resources>
         <ContextMenu x:Key="TrayMenu">
@@ -31,6 +31,19 @@
 
             <!-- Top Section -->
             <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="10">
+                <!-- Controller Selection -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Select Controller:" />
+                    <ComboBox x:Name="ControllerComboBox" Width="400" SelectionChanged="ControllerComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Xbox Controller" />
+                        <ComboBoxItem Content="Handgrepp med finger tryckplatta" />
+                        <ComboBoxItem Content="Simpleton" />
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Image for Selected Controller -->
+                <Image x:Name="ControllerImage" Height="304" Width="356" Stretch="Uniform" Margin="0,0,0,10" />
+
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button x:Name="RemapFromButton" Content="Button to remap from" Width="150" Click="RemapFromButton_Click" />
                     <TextBlock x:Name="RemapFromTextBlock" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" Width="200" />

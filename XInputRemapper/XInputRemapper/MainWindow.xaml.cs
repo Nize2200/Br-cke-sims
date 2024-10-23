@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using SharpDX.XInput;
 using Hardcodet.Wpf.TaskbarNotification;
 
@@ -151,6 +153,30 @@ namespace XInputRemapper
         {
             buttonMapper.AddRemap(buttonToRemapFrom, buttonToRemapTo);
             MessageBox.Show($"Remapped {buttonToRemapFrom} to {buttonToRemapTo}");
+        }
+
+        // New logic for handling controller selection and image update
+        private void ControllerComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            // Get the selected controller from the ComboBox
+            var selectedController = (ControllerComboBox.SelectedItem as System.Windows.Controls.ComboBoxItem)?.Content.ToString();
+
+            // Update the image source based on the selected controller
+            switch (selectedController)
+            {
+                case "Xbox Controller":
+                    ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/chat_bubble_message_contact_icon_264232.ico"));
+                    break;
+                case "Handgrepp med finger tryckplatta":
+                    ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/XInputRemapper;component/blade.jpg"));
+                    break;
+                case "Simpleton":
+                    ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/simpleton.jpg"));
+                    break;
+                default:
+                    ControllerImage.Source = null; // Clear the image if no controller is selected
+                    break;
+            }
         }
     }
 }
