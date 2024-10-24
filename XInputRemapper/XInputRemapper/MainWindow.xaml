@@ -18,108 +18,94 @@
                         ToolTipText="XInput Remapper"
                         ContextMenu="{StaticResource TrayMenu}" />
 
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <!-- Top Section -->
-            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="10">
-                <!-- Controller Selection -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Select Controller:" />
-                    <ComboBox x:Name="ControllerComboBox" Width="400" SelectionChanged="ControllerComboBox_SelectionChanged">
-                        <ComboBoxItem Content="Xbox Controller" />
-                        <ComboBoxItem Content="Handgrepp med finger tryckplatta" />
-                        <ComboBoxItem Content="Simpleton" />
-                    </ComboBox>
+                <!-- Top Section -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="10">
+                    <!-- Controller Selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Select Controller:" />
+                        <ComboBox x:Name="ControllerComboBox" Width="400" SelectionChanged="ControllerComboBox_SelectionChanged">
+                            <ComboBoxItem Content="Xbox Controller" />
+                            <ComboBoxItem Content="Handgrepp med finger tryckplatta" />
+                            <ComboBoxItem Content="Simpleton" />
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Remap From Section -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Remap From:" />
+                        <ComboBox x:Name="RemapFromComboBox" Width="200" Margin="10,0,0,0" SelectionChanged="RemapFromComboBox_SelectionChanged">
+                            <ComboBoxItem Content="A" Tag="1"/>
+                            <ComboBoxItem Content="B" Tag="2"/>
+                            <ComboBoxItem Content="X" Tag="3"/>
+                            <ComboBoxItem Content="Y" Tag="4"/>
+                            <ComboBoxItem Content="DPad_Up" Tag="5"/>
+                            <ComboBoxItem Content="DPad_Down" Tag="6"/>
+                            <ComboBoxItem Content="DPad_Left" Tag="7"/>
+                            <ComboBoxItem Content="DPad_Right" Tag="8"/>
+                            <ComboBoxItem Content="Start" Tag="9"/>
+                            <ComboBoxItem Content="Select" Tag="10"/>
+                            <ComboBoxItem Content="Back" Tag="11"/>
+                            <ComboBoxItem Content="Left_Thumb" Tag="12"/>
+                            <ComboBoxItem Content="Right_Thumb" Tag="13"/>
+                            <ComboBoxItem Content="Left_Shoulder" Tag="14"/>
+                            <ComboBoxItem Content="Right_Shoulder" Tag="15"/>
+                            <ComboBoxItem Content="None" Tag="16"/>
+                        </ComboBox>
+                        <TextBlock x:Name="RemapFromTextBlock" FontSize="16" Width="200" HorizontalAlignment="Center" Margin="10,0,0,0" />
+                    </StackPanel>
+
+                    <!-- Remap To Section -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Remap To:" />
+                        <ComboBox x:Name="RemapToComboBox" Width="200" Margin="30,0,0,0" SelectionChanged="RemapToComboBox_SelectionChanged">
+                            <ComboBoxItem Content="A"/>
+                            <ComboBoxItem Content="B"/>
+                            <ComboBoxItem Content="X"/>
+                            <ComboBoxItem Content="Y"/>
+                            <ComboBoxItem Content="DPad_Up"/>
+                            <ComboBoxItem Content="DPad_Down"/>
+                            <ComboBoxItem Content="DPad_Left"/>
+                            <ComboBoxItem Content="DPad_Right"/>
+                            <ComboBoxItem Content="Start"/>
+                            <ComboBoxItem Content="Select"/>
+                            <ComboBoxItem Content="Back"/>
+                            <ComboBoxItem Content="Left_Thumb"/>
+                            <ComboBoxItem Content="Right_Thumb"/>
+                            <ComboBoxItem Content="Left_Shoulder"/>
+                            <ComboBoxItem Content="Right_Shoulder"/>
+                            <ComboBoxItem Content="None"/>
+                        </ComboBox>
+                        <TextBlock x:Name="RemapToTextBlock" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" Width="200" />
+                    </StackPanel>
+
+                    <!-- Remapping Information Section -->
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                        <TextBlock Text="Current Remappings:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" />
+                        <TextBlock x:Name="RemapInfoTextBlock" FontSize="14" />
+                    </StackPanel>
+
+                    <Button x:Name="ApplyRemapButton" Content="Apply Remap" Width="150" Click="ApplyRemapButton_Click" HorizontalAlignment="Left" />
+                    <!-- Bindings Table Display -->
+                    <TextBox x:Name="BindingsTextBox" FontSize="14" Margin="10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" HorizontalAlignment="Left" Width="400" Height="300" />
+
+                    <TextBlock x:Name="ControllerStatusTextBlock" FontSize="16" FontWeight="Bold" Margin="10,0,0,0" Text="Controller Status: " />
                 </StackPanel>
 
-                <!-- Image for Selected Controller with Default Button Placements -->
-                <Canvas>
-                    <Image x:Name="ControllerImage" Height="349" Width="402" Stretch="Uniform" Canvas.Left="500" />
-                    <TextBlock x:Name="ButtonA" Text="3" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <TextBlock x:Name="ButtonB" Text="4" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <TextBlock x:Name="ButtonX" Text="1" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <TextBlock x:Name="ButtonY" Text="2" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <TextBlock x:Name="DpadDown" Text="7" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <TextBlock x:Name="DpadUp" Text="6" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <TextBlock x:Name="DpadLeft" Text="5" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <TextBlock x:Name="DpadRight" Text="8" Foreground="White" Background="Black" Padding="2" Visibility="Collapsed" />
-                    <!-- Add more TextBlocks for other buttons as needed -->
-                </Canvas>
-
-                <!-- Remap From Section -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button x:Name="RemapFromButton" Content="Button to remap from" Width="130" Click="RemapFromButton_Click" />
-                    <ComboBox x:Name="RemapFromComboBox" Width="200" Margin="10,0,0,0">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Tag}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                        <ComboBoxItem Content="A" Tag="1"/>
-                        <ComboBoxItem Content="B" Tag="2"/>
-                        <ComboBoxItem Content="X" Tag="3"/>
-                        <ComboBoxItem Content="Y" Tag="4"/>
-                        <ComboBoxItem Content="DPad_Up" Tag="5"/>
-                        <ComboBoxItem Content="DPad_Down" Tag="6"/>
-                        <ComboBoxItem Content="DPad_Left" Tag="7"/>
-                        <ComboBoxItem Content="DPad_Right" Tag="8"/>
-                        <ComboBoxItem Content="Start" Tag="9"/>
-                        <ComboBoxItem Content="Select" Tag="10"/>
-                        <ComboBoxItem Content="Back" Tag="11"/>
-                        <ComboBoxItem Content="Left_Thumb" Tag="12"/>
-                        <ComboBoxItem Content="Right_Thumb" Tag="13"/>
-                        <ComboBoxItem Content="Left_Shoulder" Tag="14"/>
-                        <ComboBoxItem Content="Right_Shoulder" Tag="15"/>
-                        <ComboBoxItem Content="None" Tag="16"/>
-                    </ComboBox>
-                    <TextBlock x:Name="RemapFromTextBlock" FontSize="16" Width="200" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,0" />
-                </StackPanel>
-
-                <!-- Remap To Section -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button x:Name="RemapToButton" Content="Button to remap to" Width="130" Click="RemapToButton_Click" />
-                    <ComboBox x:Name="RemapToComboBox" Width="200" Margin="10,0,0,0">
-                        <ComboBoxItem Content="A"/>
-                        <ComboBoxItem Content="B"/>
-                        <ComboBoxItem Content="X"/>
-                        <ComboBoxItem Content="Y"/>
-                        <ComboBoxItem Content="DPad_Up"/>
-                        <ComboBoxItem Content="DPad_Down"/>
-                        <ComboBoxItem Content="DPad_Left"/>
-                        <ComboBoxItem Content="DPad_Right"/>
-                        <ComboBoxItem Content="Start"/>
-                        <ComboBoxItem Content="Select"/>
-                        <ComboBoxItem Content="Back"/>
-                        <ComboBoxItem Content="Left_Thumb"/>
-                        <ComboBoxItem Content="Right_Thumb"/>
-                        <ComboBoxItem Content="Left_Shoulder"/>
-                        <ComboBoxItem Content="Right_Shoulder"/>
-                        <ComboBoxItem Content="None"/>
-                    </ComboBox>
-                    <TextBlock x:Name="RemapToTextBlock" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" Width="200" />
-                </StackPanel>
-
-                <!-- Remapping Information Section -->
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                    <TextBlock Text="Current Remappings:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" />
-                    <TextBlock x:Name="RemapInfoTextBlock" FontSize="14" />
-                </StackPanel>
-
-                <Button x:Name="ApplyRemapButton" Content="Apply Remap" Width="150" Click="ApplyRemapButton_Click" HorizontalAlignment="Left" />
-                <!-- Bindings Table Display -->
-                <TextBox x:Name="BindingsTextBox" FontSize="14" Margin="10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" HorizontalAlignment="Left" Width="400" Height="300" />
-
-                <TextBlock x:Name="ControllerStatusTextBlock" FontSize="16" FontWeight="Bold" Margin="10,0,0,0" Text="Controller Status: " />
-            </StackPanel>
-        </Grid>
+                <!-- Image for Selected Controller -->
+                <Image x:Name="ControllerImage" Grid.Row="0" Grid.Column="1" Height="349" Width="402" Stretch="Uniform" HorizontalAlignment="Right" Margin="10" />
+            </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Window>

@@ -8,12 +8,14 @@ using System.Windows.Threading;
 using SharpDX.XInput;
 using Hardcodet.Wpf.TaskbarNotification;
 using System.Windows.Input;
+using System.Threading.Tasks;
 
 namespace XInputRemapper
 {
     public partial class MainWindow : Window
     {
-        private List<ControllerHandler> controllerHandlers;
+        private Controller[] controllers;
+        private Task[] readingTasks;
         private DatabaseHandler databaseHandler;
         private ButtonMapper buttonMapper;
         private ButtonPositionHandler buttonPositionHandler;
@@ -28,13 +30,18 @@ namespace XInputRemapper
         public MainWindow()
         {
             InitializeComponent();
-            controllerHandlers = new List<ControllerHandler>();
-            for (int i = 0; i < 4; i++)
+
+            // Create an array of controllers
+            controllers = new[]
             {
-                int controllerIndex = i; // Ensure the correct index is captured
-                var handler = new ControllerHandler((state) => OnControllerStateChanged(state, controllerIndex), (UserIndex)i);
-                controllerHandlers.Add(handler);
-            }
+                new Controller(UserIndex.One),
+                new Controller(UserIndex.Two),
+                new Controller(UserIndex.Three),
+                new Controller(UserIndex.Four)
+            };
+
+            readingTasks = new Task[controllers.Length];
+
             databaseHandler = new DatabaseHandler();
             buttonMapper = new ButtonMapper();
             buttonPositionHandler = new ButtonPositionHandler();
@@ -42,8 +49,8 @@ namespace XInputRemapper
             ShowWindowCommand = new RelayCommand(ShowWindow);
             ExitApplicationCommand = new RelayCommand(ExitApplication);
             DataContext = this;
-            DisplayBindingsTable();
 
+            DisplayBindingsTable();
             StartReadingInput();
 
             // Initialize and start the connection check timer
@@ -91,14 +98,14 @@ namespace XInputRemapper
             var statusText = "Controller Status:\n";
             var tasks = new List<Task>();
 
-            for (int i = 0; i < controllerHandlers.Count; i++)
+            for (int i = 0; i < controllers.Length; i++)
             {
-                var handler = controllerHandlers[i];
+                var controller = controllers[i];
 
-                if (handler.IsConnected())
+                if (controller.IsConnected)
                 {
                     statusText += $"Controller {i}: Connected\n";
-                    tasks.Add(handler.StartReadingInput());
+                    tasks.Add(StartReadingInput(controller, i));
                 }
                 else
                 {
@@ -112,29 +119,41 @@ namespace XInputRemapper
             await Task.WhenAll(tasks);
         }
 
+        private async Task StartReadingInput(Controller controller, int index)
+        {
+            var previousState = controller.GetState().Gamepad;
+            while (controller.IsConnected)
+            {
+                var state = controller.GetState().Gamepad;
+                if (!state.Equals(previousState))
+                {
+                    OnControllerStateChanged(state, index);
+                    previousState = state;
+                }
+                await Task.Delay(100); // Adding a delay to avoid excessive database writes
+            }
+        }
+
         private void CheckControllerConnections(object sender, EventArgs e)
         {
             var statusText = "Controller Status:\n";
 
-            for (int i = 0; i < controllerHandlers.Count; i++)
+            for (int i = 0; i < controllers.Length; i++)
             {
-                var handler = controllerHandlers[i];
+                var controller = controllers[i];
 
-                if (handler.IsConnected())
+                if (controller.IsConnected)
                 {
                     statusText += $"Controller {i}: Connected\n";
-                    if (!handler.IsReadingInput)
+                    if (readingTasks[i] == null || readingTasks[i].IsCompleted)
                     {
-                        handler.StartReadingInput();
+                        readingTasks[i] = StartReadingInput(controller, i);
                     }
                 }
                 else
                 {
                     statusText += $"Controller {i}: Not Connected\n";
-                    if (handler.IsReadingInput)
-                    {
-                        handler.StopReadingInput();
-                    }
+                    readingTasks[i] = null;
                 }
             }
 
@@ -167,31 +186,23 @@ namespace XInputRemapper
             }
         }
 
-        private void RemapFromButton_Click(object sender, RoutedEventArgs e)
+        private void RemapFromComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (RemapFromComboBox.SelectedItem != null)
+            if (RemapFromComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
-                var buttonName = (RemapFromComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+                var buttonName = selectedItem.Content.ToString();
                 buttonToRemapFrom = ButtonMapper.GetButtonFlag(buttonName);
-                RemapFromTextBlock.Text = buttonToRemapFrom.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Please select a button to remap from.");
+                RemapFromTextBlock.Text = $"Remap from: {buttonName}";
             }
         }
 
-        private void RemapToButton_Click(object sender, RoutedEventArgs e)
+        private void RemapToComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (RemapToComboBox.SelectedItem != null)
+            if (RemapToComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
-                var buttonName = (RemapToComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+                var buttonName = selectedItem.Content.ToString();
                 buttonToRemapTo = ButtonMapper.GetButtonFlag(buttonName);
-                RemapToTextBlock.Text = buttonToRemapTo.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Please select a button to remap to.");
+                RemapToTextBlock.Text = $"Remap to: {buttonName}";
             }
         }
 
@@ -208,59 +219,28 @@ namespace XInputRemapper
 
         private void ControllerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedController = (ControllerComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
-
-            // Hide all button labels initially
-            ButtonA.Visibility = Visibility.Collapsed;
-            ButtonB.Visibility = Visibility.Collapsed;
-            ButtonX.Visibility = Visibility.Collapsed;
-            ButtonY.Visibility = Visibility.Collapsed;
-            DpadUp.Visibility = Visibility.Collapsed;
-            DpadDown.Visibility = Visibility.Collapsed;
-            DpadLeft.Visibility = Visibility.Collapsed;
-            DpadRight.Visibility = Visibility.Collapsed;
-
-            switch (selectedController)
+            if (ControllerComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
-                case "Xbox Controller":
-                    ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/chat_bubble_message_contact_icon_264232.ico"));
-                    buttonPositionHandler.UpdateButtonPositions("Xbox Controller", ButtonA, ButtonB, ButtonX, ButtonY, DpadUp, DpadDown, DpadLeft, DpadRight);
-                    ButtonA.Visibility = Visibility.Visible;
-                    ButtonB.Visibility = Visibility.Visible;
-                    ButtonX.Visibility = Visibility.Visible;
-                    ButtonY.Visibility = Visibility.Visible;
-                    DpadUp.Visibility = Visibility.Visible;
-                    DpadDown.Visibility = Visibility.Visible;
-                    DpadLeft.Visibility = Visibility.Visible;
-                    DpadRight.Visibility = Visibility.Visible;
-                    break;
-                case "Handgrepp med finger tryckplatta":
-                    ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/XInputRemapper;component/blade.jpg"));
-                    buttonPositionHandler.UpdateButtonPositions("Handgrepp med finger tryckplatta", ButtonA, ButtonB, ButtonX, ButtonY, DpadUp, DpadDown, DpadLeft, DpadRight);
-                    ButtonA.Visibility = Visibility.Visible;
-                    ButtonB.Visibility = Visibility.Visible;
-                    ButtonX.Visibility = Visibility.Visible;
-                    ButtonY.Visibility = Visibility.Visible;
-                    DpadUp.Visibility = Visibility.Visible;
-                    DpadDown.Visibility = Visibility.Visible;
-                    DpadLeft.Visibility = Visibility.Visible;
-                    DpadRight.Visibility = Visibility.Visible;
-                    break;
-                case "Simpleton":
-                    ControllerImage.Source = new BitmapImage(new Uri("pack://application:,,,/simpleton.jpg"));
-                    buttonPositionHandler.UpdateButtonPositions("Simpleton", ButtonA, ButtonB, ButtonX, ButtonY, DpadUp, DpadDown, DpadLeft, DpadRight);
-                    ButtonA.Visibility = Visibility.Visible;
-                    ButtonB.Visibility = Visibility.Visible;
-                    ButtonX.Visibility = Visibility.Visible;
-                    ButtonY.Visibility = Visibility.Visible;
-                    DpadUp.Visibility = Visibility.Visible;
-                    DpadDown.Visibility = Visibility.Visible;
-                    DpadLeft.Visibility = Visibility.Visible;
-                    DpadRight.Visibility = Visibility.Visible;
-                    break;
-                default:
-                    ControllerImage.Source = null; // Clear the image if no controller is selected
-                    break;
+                string controllerName = selectedItem.Content.ToString();
+                string imagePath = string.Empty;
+
+                switch (controllerName)
+                {
+                    case "Xbox Controller":
+                        imagePath = "pack://application:,,,/test.jpg";
+                        break;
+                    case "Handgrepp med finger tryckplatta":
+                        imagePath = "pack://application:,,,/test.jpg";
+                        break;
+                    case "Simpleton":
+                        imagePath = "pack://application:,,,/simpleton.jpg";
+                        break;
+                    default:
+                        MessageBox.Show("Unknown controller selected.");
+                        return;
+                }
+
+                ControllerImage.Source = new BitmapImage(new Uri(imagePath));
             }
         }
     }
