@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using SharpDX.XInput;
 
@@ -11,24 +10,27 @@ namespace XInputRemapper
         private Gamepad previousState;
         private Action<Gamepad> updateUI;
         private bool isPaused;
+        private bool isReadingInput;
 
         // Define the event
         public event Action<Gamepad> StateChanged;
 
-        // Constructor with Action<Gamepad> parameter
-        public ControllerHandler(Action<Gamepad> updateUI)
+        // Constructor with Action<Gamepad> parameter and UserIndex
+        public ControllerHandler(Action<Gamepad> updateUI, UserIndex userIndex)
         {
             this.updateUI = updateUI;
-            controller = new Controller(UserIndex.One);
+            controller = new Controller(userIndex);
             previousState = new Gamepad();
             isPaused = false;
+            isReadingInput = false;
         }
 
         public async Task StartReadingInput()
         {
+            isReadingInput = true;
             await Task.Run(async () =>
             {
-                while (true)
+                while (isReadingInput)
                 {
                     if (!isPaused && controller.IsConnected)
                     {
@@ -40,9 +42,14 @@ namespace XInputRemapper
                             previousState = state;
                         }
                     }
-                    //await Task.Delay(100); // Delay or we write alot of inputs to database, might need to consider doing a deadzone or something where we dont get so many joystick inputs
+                    await Task.Delay(100); // Adding a delay to avoid excessive database writes
                 }
             });
+        }
+
+        public void StopReadingInput()
+        {
+            isReadingInput = false;
         }
 
         public void PauseUpdates()
@@ -63,5 +70,12 @@ namespace XInputRemapper
             }
             return new Gamepad();
         }
+
+        public bool IsConnected()
+        {
+            return controller.IsConnected;
+        }
+
+        public bool IsReadingInput => isReadingInput;
     }
 }

@@ -24,7 +24,11 @@ namespace XInputRemapper
                         { "A", new Point(150, 200) },
                         { "B", new Point(200, 200) },
                         { "X", new Point(150, 150) },
-                        { "Y", new Point(200, 150) }
+                        { "Y", new Point(200, 150) },
+                        { "DpadUp", new Point(100, 100) },
+                        { "DpadDown", new Point(100, 200) },
+                        { "DpadLeft", new Point(50, 150) },
+                        { "DpadRight", new Point(150, 150) }
                     }
                 },
                 {
@@ -33,7 +37,11 @@ namespace XInputRemapper
                         { "A", new Point(745, 145) },
                         { "B", new Point(780, 130) },
                         { "X", new Point(745, 110) },
-                        { "Y", new Point(780, 100) }
+                        { "Y", new Point(780, 100) },
+                        { "DpadUp", new Point(780, 170) },
+                        { "DpadDown", new Point(735, 215) },
+                        { "DpadLeft", new Point(745, 180) },
+                        { "DpadRight", new Point(770, 210) }
                     }
                 },
                 {
@@ -42,13 +50,17 @@ namespace XInputRemapper
                         { "A", new Point(140, 190) },
                         { "B", new Point(190, 190) },
                         { "X", new Point(140, 140) },
-                        { "Y", new Point(190, 140) }
+                        { "Y", new Point(190, 140) },
+                        { "DpadUp", new Point(100, 100) },
+                        { "DpadDown", new Point(100, 200) },
+                        { "DpadLeft", new Point(50, 150) },
+                        { "DpadRight", new Point(150, 150) }
                     }
                 }
             };
         }
 
-        public void UpdateButtonPositions(string controllerName, TextBlock buttonAText, TextBlock buttonBText, TextBlock buttonXText, TextBlock buttonYText)
+        public void UpdateButtonPositions(string controllerName, TextBlock buttonAText, TextBlock buttonBText, TextBlock buttonXText, TextBlock buttonYText, TextBlock dpadUpText, TextBlock dpadDownText, TextBlock dpadLeftText, TextBlock dpadRightText)
         {
             if (controllerName != null && buttonPositions.ContainsKey(controllerName))
             {
@@ -61,6 +73,14 @@ namespace XInputRemapper
                 buttonXText.SetValue(Canvas.TopProperty, positions["X"].Y);
                 buttonYText.SetValue(Canvas.LeftProperty, positions["Y"].X);
                 buttonYText.SetValue(Canvas.TopProperty, positions["Y"].Y);
+                dpadUpText.SetValue(Canvas.LeftProperty, positions["DpadUp"].X);
+                dpadUpText.SetValue(Canvas.TopProperty, positions["DpadUp"].Y);
+                dpadDownText.SetValue(Canvas.LeftProperty, positions["DpadDown"].X);
+                dpadDownText.SetValue(Canvas.TopProperty, positions["DpadDown"].Y);
+                dpadLeftText.SetValue(Canvas.LeftProperty, positions["DpadLeft"].X);
+                dpadLeftText.SetValue(Canvas.TopProperty, positions["DpadLeft"].Y);
+                dpadRightText.SetValue(Canvas.LeftProperty, positions["DpadRight"].X);
+                dpadRightText.SetValue(Canvas.TopProperty, positions["DpadRight"].Y);
             }
         }
     }
