@@ -18,7 +18,7 @@ namespace XInputRemapper
         private Controller[] controllers;
         private Task[] readingTasks;
         private DatabaseHandler databaseHandler;
-        private ButtonMapper buttonMapper;
+        private ButtonMapper[] buttonMapList;
         private GamepadButtonFlags buttonToRemapFrom;
         private GamepadButtonFlags buttonToRemapTo;
         private bool isRemapFromButtonPressed = false;
@@ -33,16 +33,22 @@ namespace XInputRemapper
         {
             InitializeComponent();
             // Create an array of controllers
-            controllers = new[]
-            {
+            controllers =
+            [
                 new Controller(UserIndex.One),
                 new Controller(UserIndex.Two),
                 new Controller(UserIndex.Three),
                 new Controller(UserIndex.Four)
-            };
+            ];
+            buttonMapList =
+            [
+                new ButtonMapper(),
+                new ButtonMapper(),
+                new ButtonMapper(),
+                new ButtonMapper()
+            ];
             readingTasks = new Task[controllers.Length];
             databaseHandler = new DatabaseHandler();
-            buttonMapper = new ButtonMapper();
             ShowWindowCommand = new RelayCommand(ShowWindow);
             ExitApplicationCommand = new RelayCommand(ExitApplication);
             DataContext = this;
@@ -78,7 +84,7 @@ namespace XInputRemapper
 
             if (saveFileDialog.ShowDialog() == true)
             {
-                buttonMapper.SaveProfile(saveFileDialog.FileName);
+                buttonMapList[selectedControllerIndex].SaveProfile(saveFileDialog.FileName);
                 MessageBox.Show("Profile saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
@@ -95,7 +101,7 @@ namespace XInputRemapper
             {
                 try
                 {
-                    buttonMapper.LoadProfile(openFileDialog.FileName);
+                    buttonMapList[selectedControllerIndex].LoadProfile(openFileDialog.FileName);
                     MessageBox.Show("Profile loaded successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     ApplyProfileToController(selectedControllerIndex); // Apply the loaded profile to the selected controller
                     DisplayBindingsTable(); // Update the display after loading a profile
@@ -110,7 +116,7 @@ namespace XInputRemapper
         private void DisplayBindingsTable()
         {
 
-            BindingsTextBox.Text = buttonMapper.GenerateBindingsTable();
+            BindingsTextBox.Text = buttonMapList[selectedControllerIndex].GenerateBindingsTable();
         }
 
         protected override void OnStateChanged(EventArgs e)
@@ -196,7 +202,7 @@ namespace XInputRemapper
             }
             try
             {
-                var remappedState = buttonMapper.MapButtons(state);
+                var remappedState = buttonMapList[selectedControllerIndex].MapButtons(state);
                 string stateJson = Newtonsoft.Json.JsonConvert.SerializeObject(remappedState);
                 databaseHandler.AddToDatabase(controllerIndex, stateJson); // Only save for selected controller
             }
@@ -228,11 +234,11 @@ namespace XInputRemapper
 
         private void ApplyRemapButton_Click(object sender, RoutedEventArgs e)
         {
-            buttonMapper.AddRemap(buttonToRemapFrom, buttonToRemapTo);
+            buttonMapList[selectedControllerIndex].AddRemap(buttonToRemapFrom, buttonToRemapTo);
             MessageBox.Show($"Remapped {buttonToRemapFrom} to {buttonToRemapTo}");
             // Update the remapping information display
             DisplayBindingsTable();
-            var remaps = buttonMapper.GetRemaps();
+            var remaps = buttonMapList[selectedControllerIndex].GetRemaps();
         }
 
         private void ControllerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -274,7 +280,7 @@ namespace XInputRemapper
             // Apply the loaded profile to the selected controller
             var controller = controllers[controllerIndex];
             var state = controller.GetState().Gamepad;
-            var remappedState = buttonMapper.MapButtons(state);
+            var remappedState = buttonMapList[selectedControllerIndex].MapButtons(state);
             // Update the controller state with the remapped state
             // This part depends on how you want to apply the remapped state to the controller
         }
