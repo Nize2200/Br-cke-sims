@@ -40,6 +40,7 @@ namespace XInputRemapper
                 new Controller(UserIndex.Three),
                 new Controller(UserIndex.Four)
             ];
+            // Each controller needs its own mapper :D
             buttonMapList =
             [
                 new ButtonMapper(),
@@ -253,10 +254,10 @@ namespace XInputRemapper
                         imagePath = "pack://application:,,,/test.jpg";
                         break;
                     case "MD4":
-                        imagePath = "pack://application:,,,/megadragon_1.png"; 
+                        imagePath = "pack://application:,,,/megadragon.png"; 
                         break;
                     case "MD10":
-                        imagePath = "pack://application:,,,/simpleton.jpg";
+                        imagePath = "pack://application:,,,/simpleton.png";
                         break;
                     default:
                         MessageBox.Show("Unknown controller selected.");

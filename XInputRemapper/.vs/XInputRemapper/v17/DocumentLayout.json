@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\hagne\\letsgitit\\br-cke-sims\\xinputremapper\\xinputremapper\\controllers\\buttonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\controllers\\buttonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\hagne\\letsgitit\\br-cke-sims\\xinputremapper\\xinputremapper\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\hagne\\letsgitit\\br-cke-sims\\xinputremapper\\xinputremapper\\data\\databasehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\data\\databasehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\hagne\\letsgitit\\br-cke-sims\\xinputremapper\\xinputremapper\\controllers\\buttonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|solutionrelative:xinputremapper\\controllers\\buttonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2127BA06-3298-4D72-8E2E-F427AF31C044}|XInputRemapper\\XInputRemapper.csproj|c:\\users\\hagne\\letsgitit\\br-cke-sims\\xinputremapper\\xinputremapper\\controllers\\controllerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -36,7 +40,7 @@
               "RelativeDocumentMoniker": "XInputRemapper\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\hagne\\Letsgitit\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml.cs",
               "RelativeToolTip": "XInputRemapper\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAtwDEAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAAAAMBAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T09:07:01.889Z",
               "EditorCaption": ""
@@ -44,6 +48,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\hagne\\Letsgitit\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "XInputRemapper\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\hagne\\Letsgitit\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\MainWindow.xaml",
+              "RelativeToolTip": "XInputRemapper\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-09T16:00:05.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ButtonMapper.cs",
               "DocumentMoniker": "C:\\Users\\hagne\\Letsgitit\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ButtonMapper.cs",
               "RelativeDocumentMoniker": "XInputRemapper\\Controllers\\ButtonMapper.cs",
@@ -56,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ControllerHandler.cs",
               "DocumentMoniker": "C:\\Users\\hagne\\Letsgitit\\Br-cke-sims\\XInputRemapper\\XInputRemapper\\Controllers\\ControllerHandler.cs",
               "RelativeDocumentMoniker": "XInputRemapper\\Controllers\\ControllerHandler.cs",

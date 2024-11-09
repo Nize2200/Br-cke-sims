@@ -9,12 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".png" />
+    <None Remove="bracke_forest_logo.ico" />
     <None Remove="chat_bubble_message_contact_icon_264232.ico" />
     <None Remove="Icon\chat_bubble_message_contact_icon_264232.ico" />
     <None Remove="Icon\check_small_icon_155663.png" />
     <None Remove="images\blade.jpg" />
-    <None Remove="megadragon_1.png" />
+    <None Remove="megadragon %282%29.png" />
+    <None Remove="megadragon.png" />
     <None Remove="simpleton.jpg" />
+    <None Remove="simpleton.png" />
     <None Remove="test.jpg" />
   </ItemGroup>
 
@@ -27,10 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="megadragon_1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="simpleton.jpg" />
+    <Resource Include="bracke_forest_logo.ico" />
+    <Resource Include="megadragon.png" />
+    <Resource Include="simpleton.png" />
     <Resource Include="test.jpg" />
     <Resource Include="chat_bubble_message_contact_icon_264232.ico" />
     <Resource Include="Icon\chat_bubble_message_contact_icon_264232.ico" />

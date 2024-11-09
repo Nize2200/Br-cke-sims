@@ -14,7 +14,7 @@
     <DockPanel>
         <!-- Taskbar Icon for System Tray -->
         <tb:TaskbarIcon x:Name="MyNotifyIcon"
-                        IconSource="pack://application:,,,/chat_bubble_message_contact_icon_264232.ico"
+                        IconSource="pack://application:,,,/bracke_forest_logo.ico"
                         ToolTipText="XInput Remapper"
                         ContextMenu="{StaticResource TrayMenu}" />
 
@@ -117,7 +117,7 @@
                 </StackPanel>
 
                 <!-- Right Section: Image for Selected Controller -->
-                <Image x:Name="ControllerImage" Grid.Row="0" Grid.Column="1" Height="349" Width="402" Stretch="Uniform" HorizontalAlignment="Left" Margin="10" />
+                <Image x:Name="ControllerImage" Grid.Row="0" Height="349" Width="402" Stretch="Uniform" HorizontalAlignment="Left" Margin="493,115,0,115" Grid.ColumnSpan="2" />
             </Grid>
         </ScrollViewer>
     </DockPanel>
