@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿<Window x:Class="XInputRemapper.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -55,3 +56,62 @@
         </Grid>
     </DockPanel>
 </Window>
+=======
+﻿<Window x:Class="XInputRemapper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        Title="XInput Remapper" Height="400" Width="700">
+
+    <Window.Resources>
+        <ContextMenu x:Key="TrayMenu">
+            <MenuItem Header="Show" Command="{Binding ShowWindowCommand}" />
+            <MenuItem Header="Exit" Command="{Binding ExitApplicationCommand}" />
+        </ContextMenu>
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Taskbar Icon for System Tray -->
+        <tb:TaskbarIcon x:Name="MyNotifyIcon"
+                        IconSource="pack://application:,,,/bracke_forest_logo.ico"
+                        ToolTipText="XInput Remapper"
+                        ContextMenu="{StaticResource TrayMenu}" />
+
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Top Section -->
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="10">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button x:Name="RemapFromButton" Content="Button to remap from" Width="150" Click="RemapFromButton_Click" />
+                    <TextBlock x:Name="RemapFromTextBlock" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" Width="200" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button x:Name="RemapToButton" Content="Button to remap to" Width="150" Click="RemapToButton_Click" />
+                    <TextBlock x:Name="RemapToTextBlock" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" Width="200" />
+                </StackPanel>
+                <Button x:Name="ApplyRemapButton" Content="Apply Remap" Width="150" Click="ApplyRemapButton_Click" />
+            </StackPanel>
+
+            <!-- Main Content Section -->
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+                <TextBlock x:Name="ButtonPressTextBlock" VerticalAlignment="Top" FontSize="24" Margin="0,0,0,10" />
+                <TextBlock x:Name="JoystickLeft" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Width="164" Margin="0,0,0,10" />
+                <TextBlock x:Name="JoystickRight" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Width="164" Margin="0,0,0,10" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+                <TextBlock x:Name="TriggerRight" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Width="200" Margin="0,0,0,10" />
+                <TextBlock x:Name="TriggerLeft" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Width="200" Margin="0,0,0,10" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>
+>>>>>>> Stashed changes
