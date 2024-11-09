@@ -1,28 +1,124 @@
 ﻿<Window x:Class="XInputRemapper.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="XInput Remapper" Height="400" Width="700">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="31*"/>
-            <ColumnDefinition Width="49*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock x:Name="ButtonPressTextBlock" 
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Center" 
-                   FontSize="24" Grid.Column="1" Margin="122,0,0,0" Width="145"/>
-        <TextBlock x:Name="JoystickLeft"
-                   HorizontalAlignment="Right" 
-                   VerticalAlignment="Top" 
-                   FontSize="24" Width="164" Margin="0,100,30,0"/>
-        <TextBlock x:Name="JoystickRight"
-           HorizontalAlignment="Right" 
-           VerticalAlignment="Top" 
-           FontSize="24" Width="164" Margin="0,185,30,0"/>
-        <Button Content="Add to Database" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Bottom" 
-                Margin="0,5,3,10"
-                Click="AddToDatabaseButton_Click" Grid.ColumnSpan="2"/>
-    </Grid>
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        Title="XInput Remapper" Height="746" Width="926">
+
+    <Window.Resources>
+        <ContextMenu x:Key="TrayMenu">
+            <MenuItem Header="Show" Command="{Binding ShowWindowCommand}" />
+            <MenuItem Header="Exit" Command="{Binding ExitApplicationCommand}" />
+        </ContextMenu>
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Taskbar Icon for System Tray -->
+        <tb:TaskbarIcon x:Name="MyNotifyIcon"
+                        IconSource="pack://application:,,,/chat_bubble_message_contact_icon_264232.ico"
+                        ToolTipText="XInput Remapper"
+                        ContextMenu="{StaticResource TrayMenu}" />
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid DockPanel.Dock="Bottom" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Section -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="10">
+                    <!-- Controller Selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Select Controller:" />
+                        <ComboBox x:Name="ControllerComboBox" Width="200" SelectionChanged="ControllerComboBox_SelectionChanged" Margin="45,0,0,0">
+                            <ComboBoxItem Content="Xbox Controller" />
+                            <ComboBoxItem Content="MD4" />
+                            <ComboBoxItem Content="MD10" />
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Controller Index Selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Select Controller Index:" />
+                        <ComboBox x:Name="ControllerIndexComboBox" Width="200" SelectionChanged="ControllerIndexComboBox_SelectionChanged" Margin="2,0,0,0">
+                            <ComboBoxItem Content="Controller 1" />
+                            <ComboBoxItem Content="Controller 2" />
+                            <ComboBoxItem Content="Controller 3" />
+                            <ComboBoxItem Content="Controller 4" />
+                        </ComboBox>
+                    </StackPanel>
+                    <Button Name="SaveProfileButton" Content="Save Profile" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10" Click="SaveProfileButton_Click"/>
+                    <Button Name="LoadProfileButton" Content="Load Profile" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,10,0,0" Click="LoadProfileButton_Click"/>
+
+                    <!-- Remap From Section -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Remap From:" />
+                        <ComboBox x:Name="RemapFromComboBox" Width="200" SelectionChanged="RemapFromComboBox_SelectionChanged">
+                            <ComboBoxItem Content="A" Tag="1"/>
+                            <ComboBoxItem Content="B" Tag="2"/>
+                            <ComboBoxItem Content="X" Tag="3"/>
+                            <ComboBoxItem Content="Y" Tag="4"/>
+                            <ComboBoxItem Content="DPad_Up" Tag="5"/>
+                            <ComboBoxItem Content="DPad_Down" Tag="6"/>
+                            <ComboBoxItem Content="DPad_Left" Tag="7"/>
+                            <ComboBoxItem Content="DPad_Right" Tag="8"/>
+                            <ComboBoxItem Content="Start" Tag="9"/>
+                            <ComboBoxItem Content="Select" Tag="10"/>
+                            <ComboBoxItem Content="Back" Tag="11"/>
+                            <ComboBoxItem Content="Left_Thumb" Tag="12"/>
+                            <ComboBoxItem Content="Right_Thumb" Tag="13"/>
+                            <ComboBoxItem Content="Left_Shoulder" Tag="14"/>
+                            <ComboBoxItem Content="Right_Shoulder" Tag="15"/>
+                            <ComboBoxItem Content="None" Tag="16"/>
+                        </ComboBox>
+                        <TextBlock x:Name="RemapFromTextBlock" FontSize="16" Width="200" HorizontalAlignment="Center" Margin="10,0,0,0" />
+                    </StackPanel>
+
+                    <!-- Remap To Section -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Text="Remap To:" />
+                        <ComboBox x:Name="RemapToComboBox" Width="200" SelectionChanged="RemapToComboBox_SelectionChanged" Margin="20,0,0,0">
+                            <ComboBoxItem Content="A"/>
+                            <ComboBoxItem Content="B"/>
+                            <ComboBoxItem Content="X"/>
+                            <ComboBoxItem Content="Y"/>
+                            <ComboBoxItem Content="DPad_Up"/>
+                            <ComboBoxItem Content="DPad_Down"/>
+                            <ComboBoxItem Content="DPad_Left"/>
+                            <ComboBoxItem Content="DPad_Right"/>
+                            <ComboBoxItem Content="Start"/>
+                            <ComboBoxItem Content="Select"/>
+                            <ComboBoxItem Content="Back"/>
+                            <ComboBoxItem Content="Left_Thumb"/>
+                            <ComboBoxItem Content="Right_Thumb"/>
+                            <ComboBoxItem Content="Left_Shoulder"/>
+                            <ComboBoxItem Content="Right_Shoulder"/>
+                            <ComboBoxItem Content="None"/>
+                        </ComboBox>
+                        <TextBlock x:Name="RemapToTextBlock" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" Width="200" />
+                    </StackPanel>
+
+                    <Button x:Name="ApplyRemapButton" Content="Apply Remap" Width="150" Click="ApplyRemapButton_Click" HorizontalAlignment="Left" />
+
+
+                    <!-- Bindings TextBox -->
+                    <TextBox x:Name="BindingsTextBox" 
+                             HorizontalAlignment="Left" Margin="0,10,0,0" 
+                             Width="400" Height="300" IsReadOnly="True" TextWrapping="Wrap" />
+
+
+                    <!-- Controller Status -->
+                    <TextBlock x:Name="ControllerStatusTextBlock" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Text="Controller Status: " />
+                </StackPanel>
+
+                <!-- Right Section: Image for Selected Controller -->
+                <Image x:Name="ControllerImage" Grid.Row="0" Grid.Column="1" Height="349" Width="402" Stretch="Uniform" HorizontalAlignment="Left" Margin="10" />
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
 </Window>

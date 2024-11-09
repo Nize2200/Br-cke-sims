@@ -1,58 +1,81 @@
 ﻿using System;
 using System.Threading.Tasks;
 using SharpDX.XInput;
-using Newtonsoft.Json;
 
 namespace XInputRemapper
 {
     public class ControllerHandler
     {
         private Controller controller;
-        private Action<Gamepad> updateUI;
         private Gamepad previousState;
+        private Action<Gamepad> updateUI;
+        private bool isPaused;
+        private bool isReadingInput;
 
-        public ControllerHandler(Action<Gamepad> updateUI)
+        // Define the event
+        public event Action<Gamepad> StateChanged;
+
+        // Constructor with Action<Gamepad> parameter and UserIndex
+        public ControllerHandler(Action<Gamepad> updateUI, UserIndex userIndex)
         {
             this.updateUI = updateUI;
-            controller = new Controller(UserIndex.One);
+            controller = new Controller(userIndex);
             previousState = new Gamepad();
+            isPaused = false;
+            isReadingInput = false;
         }
 
         public async Task StartReadingInput()
         {
-            await Task.Run(() =>
+            isReadingInput = true;
+            await Task.Run(async () =>
             {
-                while (true)
+                while (isReadingInput)
                 {
-                    if (controller.IsConnected)
+                    if (!isPaused && controller.IsConnected)
                     {
                         var state = controller.GetState().Gamepad;
-
                         if (!state.Equals(previousState))
                         {
-                            var stateJson = JsonConvert.SerializeObject(state);
-                            var commandJson = JsonConvert.SerializeObject(state.Buttons);
-
-                            updateUI(state);
-
-                            try
-                            {
-                                DatabaseHandler databaseHandler = new DatabaseHandler();
-                                databaseHandler.AddToDatabase(0, stateJson, commandJson);
-                                Console.WriteLine("Database updated successfully.");
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine($"Error updating database: {ex.Message}");
-                            }
-
+                            StateChanged?.Invoke(state);
+                            updateUI?.Invoke(state);
                             previousState = state;
                         }
                     }
-
-                    System.Threading.Thread.Sleep(100);
+                    await Task.Delay(100); // Adding a delay to avoid excessive database writes
                 }
             });
         }
+
+        public void StopReadingInput()
+        {
+            isReadingInput = false;
+        }
+
+        public void PauseUpdates()
+        {
+            isPaused = true;
+        }
+
+        public void ResumeUpdates()
+        {
+            isPaused = false;
+        }
+
+        public Gamepad GetCurrentState()
+        {
+            if (controller.IsConnected)
+            {
+                return controller.GetState().Gamepad;
+            }
+            return new Gamepad();
+        }
+
+        public bool IsConnected()
+        {
+            return controller.IsConnected;
+        }
+
+        public bool IsReadingInput => isReadingInput;
     }
 }
