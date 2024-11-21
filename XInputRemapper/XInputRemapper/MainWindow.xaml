@@ -14,7 +14,7 @@
     <DockPanel>
         <!-- Taskbar Icon for System Tray -->
         <tb:TaskbarIcon x:Name="MyNotifyIcon"
-                        IconSource="pack://application:,,,/bracke_forest_logo.ico"
+                        IconSource="pack://application:,,,/Icon/bracke_forest_logo.ico"
                         ToolTipText="XInput Remapper"
                         ContextMenu="{StaticResource TrayMenu}" />
 

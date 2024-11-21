@@ -251,13 +251,13 @@ namespace XInputRemapper
                 switch (controllerName)
                 {
                     case "Xbox Controller":
-                        imagePath = "pack://application:,,,/test.jpg";
+                        imagePath = "pack://application:,,,/images/Xbox.png";
                         break;
                     case "MD4":
-                        imagePath = "pack://application:,,,/megadragon.png"; 
+                        imagePath = "pack://application:,,,/images/MD4.jpg"; 
                         break;
                     case "MD10":
-                        imagePath = "pack://application:,,,/simpleton.png";
+                        imagePath = "pack://application:,,,/images/MD10.jpg";
                         break;
                     default:
                         MessageBox.Show("Unknown controller selected.");
