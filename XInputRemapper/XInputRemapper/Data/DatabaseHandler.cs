@@ -5,7 +5,7 @@ namespace XInputRemapper
 {
     public class DatabaseHandler
     {
-        private string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=Nirre123;Database=seeeds";
+        private string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=;Database=seeeds";
 
         public void AddToDatabase(int index, string stateJson)
         {
