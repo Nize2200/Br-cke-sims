@@ -14,7 +14,7 @@ db_params = {
     'host': 'localhost',
     'port': 5432,
     'user': 'postgres',
-    'password': os.getenv('DB_PASSWORD', 'Nirre123'),  # Use environment variable for password
+    'password': os.getenv('DB_PASSWORD', ' '),  # Use environment variable for password
     'dbname': 'seeeds'
 }
 
