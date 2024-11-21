@@ -1,0 +1,73 @@
+<<<<<<< Updated upstream
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="bracke_forest_logo.ico" />
+    <None Remove="chat_bubble_message_contact_icon_264232.ico" />
+    <None Remove="Icon\bracke_forest_logo.ico" />
+    <None Remove="Icon\chat_bubble_message_contact_icon_264232.ico" />
+    <None Remove="Icon\check_small_icon_155663.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="bracke_forest_logo.ico" />
+    <Resource Include="chat_bubble_message_contact_icon_264232.ico" />
+    <Resource Include="Icon\bracke_forest_logo.ico" />
+    <Resource Include="Icon\chat_bubble_message_contact_icon_264232.ico" />
+    <Resource Include="Icon\check_small_icon_155663.png" />
+  </ItemGroup>
+
+</Project>
+=======
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="bracke_forest_logo.ico" />
+    <None Remove="chat_bubble_message_contact_icon_264232.ico" />
+    <None Remove="Icon\bracke_forest_logo.ico" />
+    <None Remove="Icon\chat_bubble_message_contact_icon_264232.ico" />
+    <None Remove="Icon\check_small_icon_155663.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="bracke_forest_logo.ico" />
+    <Resource Include="chat_bubble_message_contact_icon_264232.ico" />
+    <Resource Include="Icon\bracke_forest_logo.ico" />
+    <Resource Include="Icon\chat_bubble_message_contact_icon_264232.ico" />
+    <Resource Include="Icon\check_small_icon_155663.png" />
+  </ItemGroup>
+
+</Project>
+>>>>>>> Stashed changes

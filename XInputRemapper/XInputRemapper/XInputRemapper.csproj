@@ -9,10 +9,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".png" />
+    <None Remove="bracke_forest_logo.ico" />
+    <None Remove="chat_bubble_message_contact_icon_264232.ico" />
+    <None Remove="Icon\chat_bubble_message_contact_icon_264232.ico" />
+    <None Remove="Icon\check_small_icon_155663.png" />
+    <None Remove="images\blade.jpg" />
+    <None Remove="images\MD10.jpg" />
+    <None Remove="images\MD4.jpg" />
+    <None Remove="images\Xbox.png" />
+    <None Remove="megadragon %282%29.png" />
+    <None Remove="megadragon.png" />
+    <None Remove="simpleton.jpg" />
+    <None Remove="simpleton.png" />
+    <None Remove="test.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Npgsql" Version="8.0.4" />
     <PackageReference Include="SharpDX" Version="4.2.0" />
     <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icon\bracke_forest_logo.ico" />
+    <Resource Include="images\MD10.jpg" />
+    <Resource Include="images\MD4.jpg" />
+    <Resource Include="images\Xbox.png" />
+    <Resource Include="megadragon.png" />
+    <Resource Include="simpleton.png" />
+    <Resource Include="test.jpg" />
+    <Resource Include="chat_bubble_message_contact_icon_264232.ico" />
+    <Resource Include="Icon\chat_bubble_message_contact_icon_264232.ico" />
+    <Resource Include="Icon\check_small_icon_155663.png" />
+    <Resource Include="blade.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GUI\" />
   </ItemGroup>
 
 </Project>
